@@ -4,7 +4,6 @@ metadata:
   name: jackett
   labels:
     app: jackett
-  namespace: default
 spec:
   selector:
     matchLabels:
@@ -39,19 +38,4 @@ spec:
       volumes:
       - name: jackett-persistent-storage
         persistentVolumeClaim:
-          claimName: nfs-volume-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: default
-  name: jackett
-  labels:
-    app: jackett
-spec:
-  selector:
-    app: jackett
-    tier: backend
-  ports:
-  - protocol: TCP
-    port: 9117
+          claimName: home-server-pvc

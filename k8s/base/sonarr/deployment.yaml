@@ -4,7 +4,6 @@ metadata:
   name: sonarr
   labels:
     app: sonarr
-  namespace: default
 spec:
   selector:
     matchLabels:
@@ -42,19 +41,4 @@ spec:
       volumes:
       - name: sonarr-persistent-storage
         persistentVolumeClaim:
-          claimName: nfs-volume-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: default
-  name: sonarr
-  labels:
-    app: sonarr
-spec:
-  selector:
-    app: sonarr
-    tier: backend
-  ports:
-  - protocol: TCP
-    port: 8989
+          claimName: home-server-pvc

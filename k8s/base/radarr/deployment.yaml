@@ -4,7 +4,6 @@ metadata:
   name: radarr
   labels:
     app: radarr
-  namespace: default
 spec:
   selector:
     matchLabels:
@@ -42,19 +41,4 @@ spec:
       volumes:
       - name: radarr-persistent-storage
         persistentVolumeClaim:
-          claimName: nfs-volume-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: default
-  name: radarr
-  labels:
-    app: radarr
-spec:
-  selector:
-    app: radarr
-    tier: backend
-  ports:
-  - protocol: TCP
-    port: 7878
+          claimName: home-server-pvc

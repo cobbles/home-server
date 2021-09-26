@@ -4,4 +4,10 @@ metadata:
   name: app
 deploy:
   kustomize:
-    paths: ["k8s/dev/"]
+    paths: ["k8s/overlays/dev"]
+
+profiles:
+- name: prod
+  deploy:
+    kustomize:
+      paths: ["k8s/overlays/prod"]

@@ -1,2 +1,2 @@
-# media-server
-A home media server 
+# home-server
+A home server 

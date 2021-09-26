@@ -4,7 +4,6 @@ metadata:
   name: deluge
   labels:
     app: deluge
-  namespace: default
 spec:
   selector:
     matchLabels:
@@ -41,19 +40,4 @@ spec:
       volumes:
       - name: deluge-persistent-storage
         persistentVolumeClaim:
-          claimName: nfs-volume-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: default
-  name: deluge
-  labels:
-    app: deluge
-spec:
-  selector:
-    app: deluge
-    tier: backend
-  ports:
-  - protocol: TCP
-    port: 8112
+          claimName: home-server-pvc
