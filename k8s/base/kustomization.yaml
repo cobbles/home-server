@@ -1,0 +1,7 @@
+bases:
+- deluge
+- jackett
+- plex
+- radarr
+- sonarr
+- host-volume

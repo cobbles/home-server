@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+  labels:
+    app: plex
+spec:
+  selector:
+    matchLabels:
+      app: plex
+      tier: backend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plex
+        tier: backend
+        track: stable
+    spec:
+      containers:
+      - name: plex
+        image: linuxserver/plex:latest
+        volumeMounts:
+        - name: plex-persistent-storage
+          mountPath: /config
+          subPath: plex/config
+        - name: plex-persistent-storage
+          mountPath: /tv
+          subPath: tv/
+        - name: plex-persistent-storage
+          mountPath: /movies
+          subPath: movies/
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: TZ
+          value: "Australia/Syndey"
+      volumes:
+      - name: plex-persistent-storage
+        persistentVolumeClaim:
+          claimName: home-server-pvc

@@ -1,0 +1,41 @@
+namespace: home-server
+bases:
+- ../../../base
+resources:
+- home-server-namespace.yaml
+patchesJson6902:
+  - path: patch/host-volume.yaml
+    target:
+      kind: PersistentVolume
+      name: home-server-persistent-volume
+      version: v1
+  - path: patch/deluge-host.yaml
+    target:
+      group: networking.k8s.io
+      kind: Ingress
+      name: deluge-ingress
+      version: v1
+  - path: patch/jackett-host.yaml
+    target:
+      group: networking.k8s.io
+      kind: Ingress
+      name: jackett-ingress
+      version: v1
+  - path: patch/plex-host.yaml
+    target:
+      group: networking.k8s.io
+      kind: Ingress
+      name: plex-ingress
+      version: v1
+  - path: patch/radarr-host.yaml
+    target:
+      group: networking.k8s.io
+      kind: Ingress
+      name: radarr-ingress
+      version: v1
+  - path: patch/sonarr-host.yaml
+    target:
+      group: networking.k8s.io
+      kind: Ingress
+      name: sonarr-ingress
+      version: v1

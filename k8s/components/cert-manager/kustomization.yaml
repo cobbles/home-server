@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+resources:
+- https://github.com/jetstack/cert-manager/releases/download/v1.5.3/cert-manager.yaml
+- certificate.yaml
+- issuer.yaml
+patchesJson6902:
+- path: patch/default-certificate.yaml
+  target:
+    group: apps
+    kind: Deployment
+    name: ingress-nginx-controller
+    version: v1

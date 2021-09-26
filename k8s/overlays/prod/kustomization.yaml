@@ -1,0 +1,6 @@
+bases:
+- base
+components:
+- ../../components/cert-manager
+- ../../components/dashboard
+- ../../components/ingress-nginx
