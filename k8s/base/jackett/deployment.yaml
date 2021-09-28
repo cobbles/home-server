@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: jackett
-        image: linuxserver/jackett:latest
+        image: linuxserver/jackett:version-v0.18.827
         volumeMounts:
         - name: jackett-persistent-storage
           mountPath: /config

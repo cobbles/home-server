@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: deluge
-        image: linuxserver/deluge:latest
+        image: linuxserver/deluge:version-2.0.3-2201906121747ubuntu18.04.1
         volumeMounts:
         - name: deluge-persistent-storage
           mountPath: /config

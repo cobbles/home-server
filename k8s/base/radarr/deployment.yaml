@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: radarr
-        image: linuxserver/radarr:latest
+        image: linuxserver/radarr:version-3.2.2.5080
         volumeMounts:
         - name: radarr-persistent-storage
           mountPath: /config

@@ -4,3 +4,10 @@ components:
 - ../../components/cert-manager
 - ../../components/dashboard
 - ../../components/ingress-nginx
+patchesJson6902:
+- path: patch/default-certificate.yaml
+  target:
+    group: apps
+    kind: Deployment
+    name: ingress-nginx-controller
+    version: v1

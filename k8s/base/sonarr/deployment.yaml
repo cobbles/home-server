@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: sonarr
-        image: linuxserver/sonarr:latest
+        image: linuxserver/sonarr:version-3.0.6.1265
         volumeMounts:
         - name: sonarr-persistent-storage
           mountPath: /config
