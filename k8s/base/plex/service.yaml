@@ -5,9 +5,11 @@ metadata:
   labels:
     app: plex
 spec:
+  type: NodePort
   selector:
     app: plex
     tier: backend
   ports:
   - protocol: TCP
     port: 32400
+    nodePort: 32400
